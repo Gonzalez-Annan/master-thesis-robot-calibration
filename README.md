@@ -1,61 +1,55 @@
 # Robot Dynamics and Friction Characterization
 
-Experimental and modeling work developed as part of a Master's thesis in robotics.
+Experimental characterization, modeling, and control work developed as part of a Master's thesis in robotics.
 
-The project develops a reusable workflow for motor and joint characterization as a foundation for model-based compensation and impedance control.
+The project focuses on building a reusable workflow for identifying motor and joint dynamics as a foundation for model-based compensation and impedance control.
 
-## Current scope
+## Project scope
 
-The first stage focuses on a single motor/joint and includes:
+The first stage focuses on a single motor-driven joint and includes:
 
-- motor communication and unit validation
+- communication and unit validation
 - velocity and torque characterization
 - Coulomb and viscous friction identification
 - low-speed / Stribeck characterization
 - hysteresis and motion-history analysis
 - static / breakaway friction characterization
+- current-to-torque characterization
+- position and load dependence
 - 1-DOF dynamic modeling
-- model validation
-- friction and gravity compensation
+- model validation on unseen data
+- model-based compensation
 - impedance control
 
-The methodology will later be extended to a multi-joint robotic system.
+The methodology is intended to be reusable and later extendable to multi-joint robotic systems.
 
 ## Repository structure
 
-- `docs/` — experimental summaries and development notes
-- `notebooks/` — reproducible analysis notebooks
-- `scripts/acquisition/` — experiment acquisition scripts
-- `scripts/analysis/` — reusable analysis tools
-- `figures/` — selected generated figures
-- `config/` — non-sensitive experiment configuration
+```text
+.
+├── docs/
+│   ├── system_setup_and_unit_validation.md
+│   ├── velocity_torque_characterization.md
+│   ├── low_speed_friction_and_hysteresis_summary.md
+│   └── ...
+│
+├── protocol/
+│   ├── 2026-10-05.md
+│   ├── 2026-10-06.md
+│   ├── 2026-10-07.md
+│   └── ...
+│
+├── notebooks/
+│   ├── low_speed_friction_analysis.ipynb
+│   ├── hysteresis_analysis.ipynb
+│   └── ...
+│
+├── scripts/
+│   ├── acquisition/
+│   └── analysis/
+│
+├── figures/
+├── config/
+├── requirements.txt
+└── .gitignore
 
-## Experimental progress
-
-### Day 1
-Initial communication, position-control validation, encoder/unit investigation.
-
-### Day 2
-Velocity scaling validation, torque-feedback conversion, broad velocity sweep, and Coulomb/viscous friction identification.
-
-### Day 3
-High-resolution low-speed friction characterization and ascending/descending hysteresis analysis.
-
-Main observations:
-
-- Coulomb friction is approximately 0.020 Nm.
-- Broad-range viscous coefficient is approximately 0.00277 Nm/(rad/s).
-- A nonlinear low-speed friction region is present.
-- Strong motion-history dependence appears close to zero velocity.
-- Hysteresis becomes substantially smaller away from the near-zero regime.
-
-### Next
-Torque-controlled static/breakaway friction characterization, followed by development of the 1-DOF dynamic model.
-
-## Data
-
-Raw experimental datasets are intentionally not included in the public repository.
-
-## Status
-
-Work in progress.
